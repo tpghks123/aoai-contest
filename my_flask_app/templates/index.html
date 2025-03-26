@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h3 class="card-title text-center mb-4">스마트 회의 비서</h3>
+    
+    <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="audio_file" class="form-label fw-bold">녹음 파일 업로드</label>
+        <input 
+          class="form-control" 
+          type="file" 
+          id="audio_file" 
+          name="audio_file" 
+          accept=".wav,.mp3,.m4a,.flac" 
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="org_info" class="form-label fw-bold">유저 요청 사항</label>
+        <textarea 
+          class="form-control" 
+          id="org_info" 
+          name="org_info" 
+          rows="4"
+          placeholder="맞춤형 회의록을 작성해드리기 위해 요청사항을 3줄 이상 작성해주세요!"
+        ></textarea>
+      </div>
+
+      <button class="btn btn-primary w-100" type="submit">
+        업로드 및 변환
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

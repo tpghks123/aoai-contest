@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h3 class="card-title text-center mb-4">결과</h3>
+
+    {% if messages and messages|length > 0 %}
+      <ul class="list-group">
+        {% for msg in messages %}
+          <li class="list-group-item white-space-pre">{{ msg }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>결과 메시지가 없습니다.</p>
+    {% endif %}
+
+    <div class="d-grid gap-2 mt-3">
+      <a class="btn btn-secondary" href="{{ url_for('index') }}">← 돌아가기</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
